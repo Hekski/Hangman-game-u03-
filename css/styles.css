@@ -7,10 +7,9 @@
 }
 
 body {
-  /* background-color: black; */
+  background-color: black;
   color: #666;
   font-family: sans-serif;
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -23,36 +22,11 @@ body {
   min-height: 100vh;
 }
 
-header {
-  background-color: silver;
-  color: #fff;
-  -webkit-box-flex: 0;
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 4.5em;
-  text-align: center;
-}
-
 main {
-  flex: 1;
   padding: 1.5em;
-}
-
-.main-container {
   display: flex;
-}
-
-main:after {
-  content: "\00a0"; /* &nbsp; */
-  display: block;
-  margin-top: var(--space);
-  height: 0px;
-  visibility: hidden;
+  flex-direction: column;
+  justify-content: center;
 }
 
 main > article {
@@ -65,7 +39,7 @@ main > article {
   align-items: center;
 }
 
-main > article > button {
+/* main > article > button {
   align-content: center;
   justify-content: center;
 }
@@ -74,34 +48,51 @@ main > article > h2 {
   text-align: center;
   color: #777;
   margin-bottom: 1.5em;
-}
+} */
 
 ul {
   list-style-type: none;
 }
 
-.button-container {
+.image-container {
+  height: 40vh;
   display: flex;
+  justify-content: center;
 }
 
 #hangman {
-  border: 1px solid #666;
+  /* border: 1px solid #666; */
+  object-fit: cover;
+  max-width: 100%;
+
+  /* width: 800px; */
 }
 
-footer {
-  background-color: silver;
-  border-top: 1px solid #666;
-  margin-top: 20px;
-  padding-top: 30px;
-  color: #fff;
-  font-size: 1.25em;
-  width: 100%;
-  flex: none;
-  text-align: center;
+#start {
+  align-content: center;
+  justify-content: center;
+  font-size: 1.2em;
+  width: 250px;
+  background: transparent;
+  border: 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 20px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-out;
 }
 
-#startGameBtn {
-  font-size: 1.5em;
+#start:hover {
+  background-color: inherit;
+  color: rgb(0, 0, 0);
+  transition: all 0.3s ease-out;
+}
+
+#start:disabled {
+  background-color: inherit;
+  color: rgb(0, 0, 0);
+  transition: all 0.3s ease-out;
 }
 
 #gameBoard {
@@ -123,44 +114,53 @@ footer {
   min-width: 84px;
 }
 
-#word li {
-  display: inline-flex;
-  border: 1px solid #666;
-  color: #666;
-  font-size: 1.5em;
-  font-weight: bold;
-  line-height: 2em;
-  margin-top: 1em;
-  padding: 20px 5px;
-  text-align: center;
-  width: 2em;
+.info-container {
+  display: flex;
+  flex-direction: space-between;
 }
 
-.input {
-  border: 1px solid #666;
-  color: #666;
-  font-size: 1.5em;
-  font-weight: bold;
+.letterBoxes {
+  display: flex;
+  flex-direction: row;
+}
+
+#word {
+  display: flex;
+  justify-content: center;
+}
+
+#word li {
+  /* border: 1px solid #666; */
+  color: rgb(255, 255, 255);
+  /* border: 1px solid red; */
+  font-size: 3em;
+  font-weight: bolder;
   line-height: 2em;
-  margin-top: 1em;
-  padding: 20px 5px;
+  /* margin: 6px 22px 6px 22px; */
+  padding: 26px 20px 6px 20px;
   text-align: center;
-  width: 2em;
+  /* width: 2em; */
+}
+
+#grunt {
+  height: 100px;
 }
 
 #message {
-  padding-top: 20px;
-  font-size: 1.5em;
+  padding: 20px 0 0 20px;
+  font-size: 1.2em;
+  color: rgb(255, 255, 255);
+  /* transition: opacity 4s ease-in; */
 }
 
 .btn {
   /* -moz-user-select: text; */
-  background-color: #fff;
+  /* background-color: #fff; */
   background: transparent;
   border-radius: 6px;
   border: 0;
-  border: 2px solid #666;
-  color: #666;
+  /* border: 2px solid #666; */
+  color: rgb(255, 255, 255);
   cursor: pointer;
   display: block;
   font: inherit;
@@ -169,7 +169,7 @@ footer {
   margin: 0;
   overflow: visible;
   padding: 0;
-  padding: 16px 36px 22px;
+  padding: 16px 20px 14px;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -179,64 +179,32 @@ footer {
   border: 0;
 }
 
-.btn--stripe {
-  overflow: hidden;
-  position: relative;
-}
-
-.btn--stripe:after {
-  content: "";
-  display: block;
-  height: 7px;
-  width: 100%;
-  background-image: -webkit-repeating-linear-gradient(
-    45deg,
-    #666,
-    #666 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  background-image: repeating-linear-gradient(
-    45deg,
-    #666,
-    #666 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-top: 1px solid #666;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-size: 7px 7px;
-}
-
 .btn--stripe:disabled {
-  background-color: #999;
-  color: #fff;
-  border-color: #666;
+  background: transparent;
+  color: transparent;
+  border-color: rgb(0, 0, 0);
 }
 
 .btn--stripe:hover {
-  background-color: #666;
-  color: #fff;
+  background: transparent;
+  color: transparent;
   border-color: #000;
+  transition: all 0.3s ease-out;
 }
 
 .btn--stripe:disabled:after,
 .btn--stripe:hover:after {
   background-image: -webkit-repeating-linear-gradient(
     45deg,
-    #fff,
-    #fff 1px,
+    rgb(0, 0, 0),
+    rgb(0, 0, 0) 1px,
     transparent 2px,
     transparent 5px
   );
   background-image: repeating-linear-gradient(
     45deg,
-    #fff,
-    #fff 1px,
+    rgb(0, 0, 0),
+    rgb(0, 0, 0) 1px,
     transparent 2px,
     transparent 5px
   );
