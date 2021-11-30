@@ -12,32 +12,19 @@
         
     </header>
     <main>
-        <!-- <article>
-            <h2>Välkommen till spelet Hänga gubbe.</h2>
-            <p>När du trycker på starta spelet, kommer datorn att välja ett ord slumpmässigt. <br/>
-               Det kommer då dyka upp ett visst antal fält som motsvarar antalet bokstäver i ordet. <br/>
-               Ditt mål är att gissa ordet genom att trycka på bokstavsknapparna.<br/>
-               För varje bokstav du gissar rätt, så fylls dyker det upp en bokstav i på den plats som bokstaven du gissade på motsvarar i ordet.
-            </p>
-        </article> -->
         <section class="image-container">
             <img id="hangman" src="images/start.png" alt="hangman-image">
         </section>
-
-        <div class="info-container">
-            <section class="letterBoxes">
-
-                <img id="grunt" src="images/grunt.png" alt="grunt">
-                <p id="message"></p>
-                <button type="button" id="start">Starta spelet</button>
-            </section>
-            </section>
-                <ul id="word"></ul>
-            </section>
-        </div>
         
-            <!-- <h3></h3> -->
-            <!-- This is where messages should appear -->
+        <div>
+            <img id="grunt" src="images/grunt.png" alt="grunt">
+            <p id="message"></p>
+        </div>
+        <section class="letterBoxes">
+            <button type="button" id="start">Play</button>
+        </section>
+        <ul id="word"></ul>
+
         <section id="gameBoard">
             <ul id="letterButtons">
                 <li><button class="btn btn--stripe" type="button" value="A">A</button></li>
@@ -66,9 +53,8 @@
                 <li><button class="btn btn--stripe" type="button" value="X">X</button></li>
                 <li><button class="btn btn--stripe" type="button" value="Y">Y</button></li>
                 <li><button class="btn btn--stripe" type="button" value="Z">Z</button></li>
-                <li><button class="btn btn--stripe" type="button" value="Å">Å</button></li>
-                <li><button class="btn btn--stripe" type="button" value="Ä">Ä</button></li>
-                <li><button class="btn btn--stripe" type="button" value="Ö">Ö</button></li>
+                <li><button class="btn btn--stripe" type="button" value="-">-</button></li>
+
             </ul>
 
         </section>

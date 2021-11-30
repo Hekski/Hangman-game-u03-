@@ -1,3 +1,6 @@
+// Ursäkta ljudet, skulle väl egentligen haft en ljud på/av knapp men hanns inte med :)
+// Hade även kvar att lösa estetiska grejer, men även bättre reposnsivitet.
+
 const startGameBtn = document.querySelector('#start'); // DOM-nod: knappen som du startar spelet med
 const letterBtn = document.querySelectorAll('#letterButtons button'); // Array av DOM-noder: Knapparna för bokstäverna
 
@@ -27,13 +30,13 @@ startGameBtn.addEventListener('click', startGame);
 // Array: med spelets alla ord
 
 const wordList = [
-  'abc', 
-  // 'sheep', 
-  // 'sloth', 
-  // 'duck', 
-  // 'zebra', 
-  // 'donkey', 
-  // 'fish',
+  'squid', 
+  'Gi-hun', 
+  'masks', 
+  'umbrella', 
+  'Deok-su', 
+  'prize', 
+  'money',
 ];
 
 // Ljudfiler
@@ -52,27 +55,22 @@ function startState() {
   disableLetterButtons();
 }
 
-
 // Funktion som startar spelet vid knapptryckning, och då tillkallas andra funktioner
 // Funktion som återställer variabler och startar ett nytt spel
 
 function startGame() {
-  document.body.style.backgroundColor = "black";
   activateLetterButtons();
   hangmanImg.src = '/images/start.png';
   startGameBtn.disabled = true;
-  message.textContent = 'Lets play a little game, pick your letter';
+  message.textContent = 'Pick your letter...';
   selectedWord = getRandomWord();
   generateLIs();
-  // addGrunt();
-  // noLIs();
-
   console.log('Game started with word: ' + selectedWord);
 
   liArray = document.querySelector('#word').childNodes;
+  document.body.style.backgroundColor = "black";
   activateLetterButtons();
   playSound(sounds.doll);
-
 }
 
 // Funktion som slumpar fram ett ord ut ordlistan
@@ -90,17 +88,9 @@ function generateLIs() {
     for (let i = 0; i < numberOfLetters; i++) {
     let listItem = document.createElement('li');
     listItem.innerHTML = '_';
+    hangmanImg.src = '/images/h0.png';
     word.append(listItem);
-    
   }
-}
-
-// Funktion som nollställer antalet li-objekt inför ny omgång
-
-function noLIs() {
-  let listItem = document.createElement('');
-  listItem.innerHTML = '_';
-  word.append(listItem);
 }
 
 // Funktion som körs när du trycker på bokstäverna och gissar bokstav
@@ -128,7 +118,7 @@ function gameState() {
       }
     }
     if (foundLetter == 0) {
-      message.textContent = 'Fel svar...';
+      message.textContent = 'Wrong answer...';
       wrongGuesses++; //öka pott av missar som inte får överstiga selectedWord.length
       hangmanImg.src = '/images/h' + wrongGuesses + ".png"; //rita gubbe
       playSound(sounds.red);
@@ -149,21 +139,19 @@ function gameState() {
 function win() {
   if (rightGuesses == selectedWord.length) {
     console.log(rightGuesses + ' antal rightGuesses, VINST!');
-    // hangmanImg.src = "/images/win.png";
     message.textContent = 'Congratulations...';
-    startGameBtn.textContent = 'Starta om spelet';
+    startGameBtn.textContent = 'Play again?';
     playSound(sounds.track);
-
-
+    hangmanImg.src = '/images/win.png';
     endState();
   }
 }
 
 function lose() {
-  if (wrongGuesses == 9) {
+  if (wrongGuesses == 7) {
   message.textContent = 'You lose...';
-  startGameBtn.textContent = 'Replay?';
-  document.body.style.backgroundColor = "red";
+  startGameBtn.textContent = 'Play again?';
+  document.body.style.animation = "fadeBackGround 3s forwards 1";
   playSound(sounds.fly);
   endState();
   }
@@ -183,17 +171,6 @@ function activateLetterButtons() {
   }
 }
 
-// function addGrunt() {
-//   let gruntImg = document.createElement('img');
-//   gruntImg.src = "/images/grunt.png";
-//   letterBoxes.append(gruntImg);
-// }
-
-// function removeGrunt() {
-//   let gruntImg = document.removeElement('img');
-//   letterBoxes.prepend(gruntImg);
-// }
-
 function endState() {
   rightGuesses = 0;
   wrongGuesses = 0;
@@ -201,8 +178,7 @@ function endState() {
   startGameBtn.disabled = false;
 }
 
-function playSound(file, volume = 0.1) {
-  // if (isSoundEnabled() == 0) return;
+function playSound(file, volume = 0.4) {
   let audio = new Audio('./sound/' + file);
   audio.volume = volume;
   audio.play();
