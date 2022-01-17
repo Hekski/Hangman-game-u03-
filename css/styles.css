@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 @keyframes fadeBackGround {
   from {
     background-color: #000000;
@@ -13,25 +19,28 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@keyframes fadeBackGroundWin {
+  from {
+    background-color: #000000;
+  }
+  50% {
+    background-color: #ebc933;
+  }
+
+  to {
+    background-color: #000000;
+  }
 }
 
 body {
   background-color: black;
   font-family: sans-serif;
-  /* display: -webkit-flex;
-  display: -ms-flexbox; */
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  justify-content: center;
-  height: 100vh;
 }
 
 main {
@@ -39,7 +48,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1400px;
+  max-width: 1800px;
+  height: 100vh;
 }
 
 ul {
@@ -47,14 +57,14 @@ ul {
 }
 
 .image-container {
-  height: 40vh;
   display: flex;
   justify-content: center;
+  max-height: 400px;
 }
 
 #hangman {
   object-fit: cover;
-  max-width: 80%;
+  border-radius: 12px;
 }
 
 .letterBoxes {
@@ -65,15 +75,14 @@ ul {
 
 #grunt {
   height: 100px;
-  margin-left: 20px;
-  position: relative;
-  left: 0;
+  /* margin-left: 20px; */
+  /* position: relative; */
+  /* left: 0; */
 }
 
 #message {
   padding: 20px 0 10px 20px;
-  font-size: 1em;
-  position: relative;
+  font-size: 1.5em;
   color: rgb(255, 255, 255);
   transition: opacity 4s ease-in;
 }
@@ -110,6 +119,8 @@ ul {
 #gameBoard {
   position: relative;
   top: -100px;
+  display: flex;
+  justify-content: center;
 }
 
 #letterButtons {
@@ -119,11 +130,11 @@ ul {
   align-items: center;
 }
 
-#letterButtons button:not(last-child) {
-  margin: 4px 4px;
+#letterButtons {
+  margin: 8px 8px;
   cursor: pointer;
-  max-width: 84px;
-  min-width: 84px;
+  font-size: 20px;
+  max-width: 46rem;
 }
 
 #word {
@@ -138,23 +149,20 @@ ul {
   color: #fd287e;
   font-size: 3em;
   font-weight: bolder;
-  padding: 26px 20px 6px 20px;
+  padding: 2rem 1rem 1rem 1rem;
 }
 
-.btn {
+.btn--stripe {
   background: transparent;
-  border-radius: 6px;
   border: 0;
   color: rgb(255, 255, 255);
   cursor: pointer;
   /* display: block; */
   font: inherit;
   line-height: normal;
-  margin-bottom: 16px;
   margin: 0;
-  /* overflow: visible; */
-  padding: 0;
-  padding: 16px 20px 14px;
+  overflow: visible;
+  padding: 1rem 2rem 1rem 1rem;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -170,13 +178,20 @@ ul {
   transition: all 0.3s ease-out;
 }
 
-@media only screen and (max-width: 414px) {
-  #message {
-    /* padding: 20px 0 10px 20px; */
-    font-size: 3em;
+@media only screen and (max-width: 760px) {
+  /* #message {
+    padding: 20px 0 10px 20px;
+    font-size: 2em;
+  } */
+
+  #letterButtons {
+    margin: 8px 8px;
+    cursor: pointer;
+    font-size: 30px;
+    max-width: 46rem;
   }
 
-  .btn--stripe {
-    font-size: 3em;
-  }
+  /* .btn--stripe {
+    font-size: 2em;
+  } */
 }

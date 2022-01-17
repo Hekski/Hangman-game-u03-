@@ -1,66 +1,109 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Hangman</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  </head>
 
-<body>
-    <header>
-        
-    </header>
+  <body>
     <main>
-        <section class="image-container">
-            <img id="hangman" src="images/start.png" alt="hangman-image">
-        </section>
-        
-        <div>
-            <img id="grunt" src="images/grunt.png" alt="grunt">
-            <p id="message"></p>
-        </div>
-        <section class="letterBoxes">
-            <button type="button" id="start">Play</button>
-        </section>
-        <ul id="word"></ul>
+      <section class="image-container">
+        <img id="hangman" src="images/start.png" alt="hangman-image" />
+      </section>
 
-        <section id="gameBoard">
-            <ul id="letterButtons">
-                <li><button class="btn btn--stripe" type="button" value="A">A</button></li>
-                <li><button class="btn btn--stripe" type="button" value="B">B</button></li>
-                <li><button class="btn btn--stripe" type="button" value="C">C</button></li>
-                <li><button class="btn btn--stripe" type="button" value="D">D</button></li>
-                <li><button class="btn btn--stripe" type="button" value="E">E</button></li>
-                <li><button class="btn btn--stripe" type="button" value="F">F</button></li>
-                <li><button class="btn btn--stripe" type="button" value="G">G</button></li>
-                <li><button class="btn btn--stripe" type="button" value="H">H</button></li>
-                <li><button class="btn btn--stripe" type="button" value="I">I</button></li>
-                <li><button class="btn btn--stripe" type="button" value="J">J</button></li>
-                <li><button class="btn btn--stripe" type="button" value="K">K</button></li>
-                <li><button class="btn btn--stripe" type="button" value="L">L</button></li>
-                <li><button class="btn btn--stripe" type="button" value="M">M</button></li>
-                <li><button class="btn btn--stripe" type="button" value="N">N</button></li>
-                <li><button class="btn btn--stripe" type="button" value="O">O</button></li>
-                <li><button class="btn btn--stripe" type="button" value="P">P</button></li>
-                <li><button class="btn btn--stripe" type="button" value="Q">Q</button></li>
-                <li><button class="btn btn--stripe" type="button" value="R">R</button></li>
-                <li><button class="btn btn--stripe" type="button" value="S">S</button></li>
-                <li><button class="btn btn--stripe" type="button" value="T">T</button></li>
-                <li><button class="btn btn--stripe" type="button" value="U">U</button></li>
-                <li><button class="btn btn--stripe" type="button" value="V">V</button></li>
-                <li><button class="btn btn--stripe" type="button" value="W">W</button></li>
-                <li><button class="btn btn--stripe" type="button" value="X">X</button></li>
-                <li><button class="btn btn--stripe" type="button" value="Y">Y</button></li>
-                <li><button class="btn btn--stripe" type="button" value="Z">Z</button></li>
-                <li><button class="btn btn--stripe" type="button" value="-">-</button></li>
+      <div>
+        <img id="grunt" src="images/grunt.png" alt="grunt" />
+        <p id="message"></p>
+      </div>
+      <section class="letterBoxes">
+        <button type="button" id="start">Play</button>
+      </section>
+      <ul id="word"></ul>
 
-            </ul>
-
-        </section>
-        
+      <section id="gameBoard">
+        <ul id="letterButtons">
+          <li>
+            <button class="btn btn--stripe" type="button" value="A">A</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="B">B</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="C">C</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="D">D</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="E">E</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="F">F</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="G">G</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="H">H</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="I">I</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="J">J</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="K">K</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="L">L</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="M">M</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="N">N</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="O">O</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="P">P</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="Q">Q</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="R">R</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="S">S</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="T">T</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="U">U</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="V">V</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="W">W</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="X">X</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="Y">Y</button>
+          </li>
+          <li>
+            <button class="btn btn--stripe" type="button" value="Z">Z</button>
+          </li>
+        </ul>
+      </section>
     </main>
     <script type="text/javascript" src="js/script.js"></script>
-</body>
-
+  </body>
 </html>
