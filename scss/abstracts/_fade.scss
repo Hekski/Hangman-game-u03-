@@ -1,0 +1,25 @@
+@keyframes fadeBackGround {
+  from {
+    background-color: #000000;
+  }
+  50% {
+    background-color: #d61414;
+  }
+
+  to {
+    background-color: #000000;
+  }
+}
+
+@keyframes fadeBackGroundWin {
+  from {
+    background-color: #000000;
+  }
+  50% {
+    background-color: #ebc933;
+  }
+
+  to {
+    background-color: #000000;
+  }
+}

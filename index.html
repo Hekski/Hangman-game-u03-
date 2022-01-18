@@ -3,22 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hangman</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
 
   <body>
     <main>
+      <section class="message-container">
+        <img id="grunt" src="images/grunt.png" alt="grunt" />
+        <p id="message"></p>
+      </section>
+
       <section class="image-container">
         <img id="hangman" src="images/start.png" alt="hangman-image" />
       </section>
 
-      <div>
-        <img id="grunt" src="images/grunt.png" alt="grunt" />
-        <p id="message"></p>
-      </div>
       <section class="letterBoxes">
         <button type="button" id="start">Play</button>
       </section>
+
       <ul id="word"></ul>
 
       <section id="gameBoard">
