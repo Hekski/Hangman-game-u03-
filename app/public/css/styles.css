@@ -239,6 +239,11 @@ footer {
           align-items: center;
 }
 
+p,
+span {
+  color: white;
+}
+
 #letterButtons {
   display: -webkit-box;
   display: -ms-flexbox;
